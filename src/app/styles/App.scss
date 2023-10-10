@@ -1,16 +1,83 @@
 @import "./Variables.scss";
+@import url(https://use.typekit.net/mrd2wcq.css);
 
-.response
+
+div{
+    background-color: $mainWhite;
+}
+
+.header-block{
+    background-color: $mainBlue;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border: 1px solid black;
+
+}
+
+.header{
+    font-size: 2em;
+    font-family: "museo-sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: $mainWhite;
+    text-align: center;
+}
+
+.chatbox
 {
-    .icon
-    {
-        width: 24px;
-        height: 24px;
-    }
-    .text
-    {
-        font: $responseFont;
-        color: $mainBlue;
-        font-size: $responseFontSize;
-    }
+    width: 100%;
+    height: auto;
+    padding: 16px;
+}
+
+.chat-text
+{
+    font-size: em;
+    font-family: "museo-sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: $mainBlue;
+}
+.chat-messages
+{
+    border: 1px solid red;
+}
+
+.chat-input 
+{
+    width: 48em;
+    margin: auto;
+    
+
+}
+.chat-input-sendbutton
+{
+    background-color: $mainBlue;
+    font-size: 1em;
+    padding: .5em 1em .5em 1em;
+    font-family: "museo-sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: $mainWhite;
+    border-radius: 2px;
+    text-align: center;
+}
+.chat-input-box
+{
+    font-size: 1em;
+    padding: .5em .5em .5em 1em;
+    font-family: "museo-sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: $mainBlue;
+    box-shadow: 0px 0px 5px 0px $mainGray;
+    border-radius: 2px;
+    width: 43.6em;
+}
+.prompt-input {
+    background-color:red;
+    border:1px solid red;
+}
+.prompt-input{
+    background-color: $mainGray;
 }

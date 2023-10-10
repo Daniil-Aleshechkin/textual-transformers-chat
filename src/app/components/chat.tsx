@@ -71,10 +71,10 @@ const Chat: React.FC = () => {
         ))}
         <PromptCompoment key="current-prompt" prompt={currentPrompt} />
       </div>
-      <div className="">
+      <div className="chat-input">
         <input
           type="text"
-          className=" text-black"
+          className=" text-black chat-input-box"
           placeholder="Type a message..."
           value={inputMessage}
           disabled={currentPrompt.responseStatus == "Waiting"}
@@ -85,7 +85,7 @@ const Chat: React.FC = () => {
             }
           }}
         />
-        <button onClick={() => handleSendMessage(generateRandomGuid())}>
+        <button className="chat-input-sendbutton" onClick={() => handleSendMessage(generateRandomGuid())}>
           Send
         </button>
       </div>
