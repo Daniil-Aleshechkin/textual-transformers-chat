@@ -89,6 +89,11 @@ const Chat: React.FC = () => {
           placeholder="Type a message..."
           value={inputMessage}
           onChange={handleInputChange}
+          onKeyDown={(e) => {
+            if (e.key == "Enter") {
+              handleSendMessage(generateRandomGuid());
+            }
+          }}
         />
         <button onClick={() => handleSendMessage(generateRandomGuid())}>
           Send
