@@ -9,9 +9,14 @@ import sleep from "../utils/sleep";
 const pollsRequired: Number = 2;
 
 const Chat: React.FC = () => {
-  const [prompts, setMessages] = useState<Prompt[]>([]);
+  const [prompts, setPrompts] = useState<Prompt[]>([]);
   const [inputMessage, setInputMessage] = useState<string>("");
-  const [currentPrompt, setCurrentPrompt] = useState<Prompt>();
+  const [currentPrompt, setCurrentPrompt] = useState<Prompt>({
+    id: "",
+    input: "",
+    response: null,
+    responseStatus: "Ready",
+  });
 
   const handleSendMessage = (id: string) => {
     if (currentPrompt?.responseStatus != "Waiting") {
@@ -44,10 +49,19 @@ const Chat: React.FC = () => {
         getChatReponse();
         currentPolls += 1;
       } else {
-        setCurrentPrompt({
+        let oldPrompts = [...prompts];
+        oldPrompts.push({
           id: currentPrompt!.id,
           input: currentPrompt!.input,
           response: response,
+          responseStatus: "Success",
+        });
+        setPrompts(oldPrompts);
+
+        setCurrentPrompt({
+          id: "",
+          input: "",
+          response: null,
           responseStatus: "Ready",
         });
       }

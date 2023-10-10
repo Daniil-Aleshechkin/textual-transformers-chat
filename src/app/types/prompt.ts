@@ -1,4 +1,4 @@
-type PromptStatus = "Waiting" | "Ready" | "Failed";
+type PromptStatus = "Waiting" | "Ready" | "Failed" | "Success";
 
 interface Prompt {
   id: string;
