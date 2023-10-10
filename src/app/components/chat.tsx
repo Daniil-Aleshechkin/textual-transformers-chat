@@ -26,6 +26,7 @@ const Chat: React.FC = () => {
         response: null,
         responseStatus: "Waiting",
       });
+      setInputMessage("");
     }
   };
 
@@ -51,8 +52,8 @@ const Chat: React.FC = () => {
       } else {
         let oldPrompts = [...prompts];
         oldPrompts.push({
-          id: currentPrompt!.id,
-          input: currentPrompt!.input,
+          id: currentPrompt.id,
+          input: currentPrompt.input,
           response: response,
           responseStatus: "Success",
         });
@@ -88,6 +89,7 @@ const Chat: React.FC = () => {
           className=" text-black"
           placeholder="Type a message..."
           value={inputMessage}
+          disabled={currentPrompt.responseStatus == "Waiting"}
           onChange={handleInputChange}
           onKeyDown={(e) => {
             if (e.key == "Enter") {
