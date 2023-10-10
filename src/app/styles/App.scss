@@ -1,0 +1,16 @@
+@import "./Variables.scss";
+
+.response
+{
+    .icon
+    {
+        width: 24px;
+        height: 24px;
+    }
+    .text
+    {
+        font: $responseFont;
+        color: $mainBlue;
+        font-size: $responseFontSize;
+    }
+}
