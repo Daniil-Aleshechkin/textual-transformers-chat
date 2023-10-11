@@ -43,19 +43,19 @@ const Chat: React.FC = () => {
       let oldPrompts = [...prompts];
 
       try {
-        // const rawResponse = (
-        //   await axios.post(
-        //     "http://localhost:5077/Chat",
-        //     {
-        //       Message: currentPrompt.input,
-        //     },
-        //     { headers: { "Content-Type": "application/json" } }
-        //   )
-        // ).data as ChatAPIResponse;
+        const rawResponse = (
+          await axios.post(
+            "https://team8azureopenaiservice.azurewebsites.net/Chat",
+            {
+              Message: currentPrompt.input,
+            },
+            { headers: { "Content-Type": "application/json" } }
+          )
+        ).data as ChatAPIResponse;
 
-        //const response = rawResponse.response;
-        //console.log(response);
-        const response = "Hello! this is the server";
+        const response = rawResponse.response;
+        console.log(response);
+        //const response = "Hello! this is the server";
 
         oldPrompts.push({
           id: currentPrompt.id,
