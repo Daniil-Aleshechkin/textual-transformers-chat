@@ -51,11 +51,15 @@ body{
 
 }
 
+.flex-col{
+
+}
 .chat-input 
 {
     width: 48em;
     margin: auto;
     // float: bottom;
+   
 }
 .chat-input-sendbutton
 {
@@ -72,13 +76,13 @@ body{
 }
 .chat-input-box
 {
-    
+    color: $mainBlack;
     font-size: 1em;
     padding: .5em .5em .5em 1em;
     font-family: "museo-sans", sans-serif;
     font-weight: 300;
     font-style: normal;
-    color: $mainBlue;
+    color: $mainBlack;
     box-shadow: 0px 0px 5px 0px $mainGray;
     border-radius: 2px;
     width: 43.6em;
@@ -95,7 +99,6 @@ body{
 
 .prompt-input-text, .prompt-response-text{
     padding: 1em;
-    //border: 1px solid red;
     width:48em;
     display: table;
     margin: 0 auto;
@@ -113,29 +116,37 @@ table, th, td {
 
 
 // Chat details profile
+.chat-profile{
+    vertical-align: top;
+}
 .chat-box-bot{
     background-color: $mainBlue;
-    //border: 1px solid red;
     border-radius: 3px;
     width: 2.5em;
     height: 2.5em;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 .chat-box-user{
     background-color: $mainGold;
-    //border: 1px solid red;
     border-radius: 3px;
     width: 2.5em;
     height: 2.5em;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 .chat-initial{
-    //border: 1px solid black;
-    height: 100%;
     font-size: 1em;
     font-family: "museo-sans", sans-serif;
     font-weight: 300;
     font-style: normal;
     color: $mainWhite;
+    background-color: transparent;
+    text-align:center;
 }
+
 
 //Chat texts
 .chat-text{
@@ -146,7 +157,3 @@ table, th, td {
     padding-left: 2em;
 }
 
-.chat-profile{
-    vertical-align: top;
-    //border: 1px solid orange;
-}
