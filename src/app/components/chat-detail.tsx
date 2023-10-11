@@ -1,4 +1,5 @@
 import React from "react";
+import Typewriter from "./typewriter";
 
 const ChatDetail: React.FC<{initial:string, isBot:boolean, text:string|undefined|null}> = props => 
 {
@@ -12,7 +13,7 @@ const ChatDetail: React.FC<{initial:string, isBot:boolean, text:string|undefined
                                 <div className = "chat-initial">{props.initial}</div>
                             </div>
                         </td>
-                    <td className="chat-text-table"><p className="chat-text">{props.text}</p></td>
+                    <td className="chat-text-table"><p className="chat-text"><Typewriter text={props.text} delay={10}/></p></td>
                     </tr>
                 </table>  
             </React.Fragment>);
