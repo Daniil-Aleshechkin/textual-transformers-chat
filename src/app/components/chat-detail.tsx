@@ -12,7 +12,7 @@ const ChatDetail: React.FC<{initial:string, isBot:boolean, text:string|undefined
                                 <span className = "chat-initial">{props.initial}</span>
                             </div>
                         </td>
-                    <td><span className="chatText">{props.text}</span></td>
+                    <td className="chat-text-table"><p className="chat-text">{props.text}</p></td>
                     </tr>
                 </table>  
             </React.Fragment>);
@@ -26,7 +26,7 @@ const ChatDetail: React.FC<{initial:string, isBot:boolean, text:string|undefined
                                 <span className = "chat-initial">{props.initial}</span>
                             </div>
                         </td>
-                        <td><span className="chatText">{props.text}</span></td>
+                        <td className="chat-text-table"><p className="chat-text">{props.text}</p></td>
                     </tr>
                 </table>  
             </React.Fragment>

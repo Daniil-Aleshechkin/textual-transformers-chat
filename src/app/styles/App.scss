@@ -112,7 +112,7 @@ table, th, td {
   }
 
 
-// Chat Details
+// Chat details profile
 .chat-box-bot{
     background-color: $mainBlue;
     //border: 1px solid red;
@@ -137,8 +137,13 @@ table, th, td {
     color: $mainWhite;
 }
 
+//Chat texts
 .chat-text{
-    padding: 2em;
+    color: $mainBlack;
+}
+.chat-text-table{
+    //border: 1px solid orange;
+    padding-left: 2em;
 }
 
 .chat-profile{
