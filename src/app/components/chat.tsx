@@ -5,6 +5,11 @@ import generateRandomGuid from "../utils/guid";
 import type Prompt from "../types/prompt";
 import PromptCompoment from "./prompt";
 import sleep from "../utils/sleep";
+import axios from "axios";
+
+interface ChatAPIResponse {
+  response: string;
+}
 
 const Chat: React.FC = () => {
   const [prompts, setPrompts] = useState<Prompt[]>([]);
@@ -35,17 +40,40 @@ const Chat: React.FC = () => {
     }
 
     const getChatReponse = async () => {
-      console.log(`Sending message: ${inputMessage}`);
-      await sleep(2000);
-      const response = "Hello! thanks for your question";
-
       let oldPrompts = [...prompts];
-      oldPrompts.push({
-        id: currentPrompt.id,
-        input: currentPrompt.input,
-        response: response,
-        responseStatus: "Success",
-      });
+
+      try {
+        // const rawResponse = (
+        //   await axios.post(
+        //     "http://localhost:5077/Chat",
+        //     {
+        //       Message: currentPrompt.input,
+        //     },
+        //     { headers: { "Content-Type": "application/json" } }
+        //   )
+        // ).data as ChatAPIResponse;
+
+        //const response = rawResponse.response;
+        //console.log(response);
+        const response = "Hello! this is the server";
+
+        oldPrompts.push({
+          id: currentPrompt.id,
+          input: currentPrompt.input,
+          response: response,
+          responseStatus: "Success",
+        });
+      } catch (error) {
+        const response = error as string;
+        console.log(response);
+        oldPrompts.push({
+          id: currentPrompt.id,
+          input: currentPrompt.input,
+          response: response,
+          responseStatus: "Failed",
+        });
+      }
+
       setPrompts(oldPrompts);
 
       setCurrentPrompt({
@@ -85,7 +113,10 @@ const Chat: React.FC = () => {
             }
           }}
         />
-        <button className="chat-input-sendbutton" onClick={() => handleSendMessage(generateRandomGuid())}>
+        <button
+          className="chat-input-sendbutton"
+          onClick={() => handleSendMessage(generateRandomGuid())}
+        >
           Send
         </button>
       </div>
