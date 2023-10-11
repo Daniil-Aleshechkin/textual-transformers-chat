@@ -55,7 +55,7 @@ const Chat: React.FC = () => {
 
         //const response = rawResponse.response;
         //console.log(response);
-        const response = "Hello! this is the server";
+        const response = "Hello! this is the server.\nThis should be a new line";
 
         oldPrompts.push({
           id: currentPrompt.id,
@@ -65,6 +65,7 @@ const Chat: React.FC = () => {
         });
       } catch (error) {
         const response = error as string;
+        console.log("There is error:");
         console.log(response);
         oldPrompts.push({
           id: currentPrompt.id,
