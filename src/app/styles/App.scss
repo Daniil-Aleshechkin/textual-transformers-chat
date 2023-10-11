@@ -14,11 +14,14 @@ body{
     background-color: $mainWhite;
 }
 
+main{
+    padding-bottom: 3em;;
+}
+
 .header-block{
     background-color: $mainBlue;
     padding-top: 1em;
     padding-bottom: 1em;
-    border: 1px solid black;
 
 }
 
@@ -31,34 +34,39 @@ body{
     text-align: center;
 }
 
-.chatbox
-{
+.chatbox{
     width: 100%;
     height: auto;
     padding: 16px;
 }
 
-.chat-text
-{
+.chat-text{
     font-size: em;
     font-family: "museo-sans", sans-serif;
     font-weight: 300;
     font-style: normal;
     color: $mainBlue;
-}
-.chat-messages
-{
-
+    white-space: pre-wrap;
 }
 
-.chat-input 
-{
+
+.flex-col{
+    position: relative;
+}
+
+.chat-messages{
+     margin-bottom: 2em;
+     height: 100%;
+}
+.chat-input-container{
+    position: absolute;
+    bottom:2em;
+}
+.chat-input {
     width: 48em;
     margin: auto;
-    // float: bottom;
 }
-.chat-input-sendbutton
-{
+.chat-input-sendbutton{
     background-color: $mainBlue;
     font-size: 1em;
     padding: .5em 1em .5em 1em;
@@ -70,83 +78,92 @@ body{
     text-align: center;
     float: right;
 }
-.chat-input-box
-{
-    
+
+.chat-input-box{
+    color: $mainBlack;
     font-size: 1em;
     padding: .5em .5em .5em 1em;
     font-family: "museo-sans", sans-serif;
     font-weight: 300;
     font-style: normal;
-    color: $mainBlue;
+    color: $mainBlack;
     box-shadow: 0px 0px 5px 0px $mainGray;
     border-radius: 2px;
     width: 43.6em;
 }
-.chat-input-box:focus
-{
+
+.chat-input-box:focus{
     outline: none;
 }
 
 .prompt-input{
-    background-color: $mainGray;
+    background-color: $mainWhite;
     
+}
+.prompt-response{
+    background-color: $mainGray;
 }
 
 .prompt-input-text, .prompt-response-text{
     padding: 1em;
-    //border: 1px solid red;
     width:48em;
     display: table;
     margin: 0 auto;
     background-color: transparent;
 }
+
 .prompt-response-text{
     padding-left: 3.5em;
 }
 
 table, th, td {
-    //border:1px solid black;
     background-color: none;
     background: transparent;
-  }
+}
 
 
 // Chat details profile
+.chat-profile{
+    vertical-align: top;
+}
+
 .chat-box-bot{
     background-color: $mainBlue;
-    //border: 1px solid red;
     border-radius: 3px;
     width: 2.5em;
     height: 2.5em;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
+
 .chat-box-user{
     background-color: $mainGold;
-    //border: 1px solid red;
     border-radius: 3px;
     width: 2.5em;
     height: 2.5em;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
+
 .chat-initial{
-    //border: 1px solid black;
-    height: 100%;
     font-size: 1em;
     font-family: "museo-sans", sans-serif;
     font-weight: 300;
     font-style: normal;
     color: $mainWhite;
+    background-color: transparent;
+    text-align:center;
 }
+
 
 //Chat texts
 .chat-text{
     color: $mainBlack;
 }
+
 .chat-text-table{
-    //border: 1px solid orange;
     padding-left: 2em;
 }
 
-.chat-profile{
-    vertical-align: top;
-    //border: 1px solid orange;
-}

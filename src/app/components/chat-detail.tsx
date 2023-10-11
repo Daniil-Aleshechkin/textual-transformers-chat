@@ -9,7 +9,7 @@ const ChatDetail: React.FC<{initial:string, isBot:boolean, text:string|undefined
                     <tr>
                         <td className = "chat-profile">
                             <div className = "chat-box-bot">
-                                <span className = "chat-initial">{props.initial}</span>
+                                <div className = "chat-initial">{props.initial}</div>
                             </div>
                         </td>
                     <td className="chat-text-table"><p className="chat-text">{props.text}</p></td>
@@ -23,7 +23,7 @@ const ChatDetail: React.FC<{initial:string, isBot:boolean, text:string|undefined
                     <tr>
                         <td className = "chat-profile">
                             <div className = "chat-box-user">
-                                <span className = "chat-initial">{props.initial}</span>
+                                <div className = "chat-initial">{props.initial}</div>
                             </div>
                         </td>
                         <td className="chat-text-table"><p className="chat-text">{props.text}</p></td>
