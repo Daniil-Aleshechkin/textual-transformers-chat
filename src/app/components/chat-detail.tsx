@@ -1,5 +1,6 @@
 import React from "react";
 import Source from "../types/source";
+import Typewriter from "./typewriter";
 
 const ChatDetail: React.FC<{
   initial: string;
@@ -24,7 +25,7 @@ const ChatDetail: React.FC<{
               </div>
             </td>
             <td className="chat-text-table">
-              <p className="chat-text">{props.text}</p>
+              <Typewriter text={props.text} delay={10} />
               <div className=" flex-col flex text-blue-500 bg-transparent underline">
                 {sourceLinks}
               </div>
