@@ -1,11 +1,18 @@
+"use client";
+
 import React from "react";
 import type Prompt from "../types/prompt";
 import ChatDetail from "./chat-detail";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { ChatData } from "../models/ChatData";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner";
 
 const PromptCompoment: React.FC<{ prompt: Prompt | undefined }> = ({
   prompt,
 }) => {
+  const responseIsReady = prompt?.responseStatus != "Waiting";
+  console.log(responseIsReady);
   if (
     (prompt?.input === "" || prompt?.input === null) &&
     (prompt?.response === "" || prompt?.response === null)
@@ -26,12 +33,16 @@ const PromptCompoment: React.FC<{ prompt: Prompt | undefined }> = ({
         </div>
         <div className="prompt-response">
           <div className="prompt-response-text">
-            <ChatDetail
-              initial="Ai"
-              isBot={true}
-              text={prompt?.response}
-              sources={prompt?.sources ?? []}
-            />
+            {responseIsReady ? (
+              <ChatDetail
+                initial="Ai"
+                isBot={true}
+                text={prompt?.response}
+                sources={prompt?.sources ?? []}
+              />
+            ) : (
+              <FontAwesomeIcon icon={faSpinner} className=" animate-spin" />
+            )}
           </div>
         </div>
       </div>
