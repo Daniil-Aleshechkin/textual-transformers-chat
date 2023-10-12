@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-const Typewriter = ({ text, delay }: { text: any; delay: any }) => {
+const Typewriter = ({
+  text,
+  delay,
+  finishedTypeWriter,
+}: {
+  text: any;
+  delay: any;
+  finishedTypeWriter: () => void;
+}) => {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -11,7 +19,11 @@ const Typewriter = ({ text, delay }: { text: any; delay: any }) => {
         setCurrentIndex((prevIndex) => prevIndex + 1);
       }, delay);
 
-      return () => clearTimeout(timeout);
+      return () => {
+        clearTimeout(timeout);
+      };
+    } else {
+      finishedTypeWriter();
     }
   }, [currentIndex, delay, text]);
 
