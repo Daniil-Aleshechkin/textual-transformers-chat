@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import type Prompt from "../types/prompt";
 import ChatDetail from "./chat-detail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +11,12 @@ import RatingsBar from "./rating";
 const PromptCompoment: React.FC<{ prompt: Prompt | undefined }> = ({
   prompt,
 }) => {
+  const [doneTypeWriting, setdoneTypeWriting] = useState<boolean>(false);
+
+  const handleFinishedTypeWriter = () => {
+    setdoneTypeWriting(true);
+  };
+
   const responseIsReady = prompt?.responseStatus != "Waiting";
   console.log(responseIsReady);
   if (
@@ -28,6 +34,8 @@ const PromptCompoment: React.FC<{ prompt: Prompt | undefined }> = ({
               isBot={false}
               text={prompt?.input}
               sources={prompt?.sources ?? []}
+              finishedTypeWriter={handleFinishedTypeWriter}
+              showLinks={doneTypeWriting}
             />
           </div>
         </div>
@@ -40,8 +48,10 @@ const PromptCompoment: React.FC<{ prompt: Prompt | undefined }> = ({
                   isBot={true}
                   text={prompt?.response}
                   sources={prompt?.sources ?? []}
+                  finishedTypeWriter={handleFinishedTypeWriter}
+                  showLinks={doneTypeWriting}
                 />
-                <RatingsBar/>
+                {doneTypeWriting && <RatingsBar />}
               </React.Fragment>
             ) : (
               <FontAwesomeIcon icon={faSpinner} className=" animate-spin" />

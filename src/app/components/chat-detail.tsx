@@ -9,20 +9,16 @@ const ChatDetail: React.FC<{
   isBot: boolean;
   text: string | undefined | null;
   sources: Source[];
+  finishedTypeWriter: () => void;
+  showLinks: boolean;
 }> = (props) => {
-  const [showLinks, setShowLinks] = useState<boolean>(false);
-
-  const sourceLinks = showLinks
+  const sourceLinks = props.showLinks
     ? props.sources.map((source, index) => (
         <a key={`LINK: ${index}`} href={source.filePath} target="_blank">
           {source.fileName}
         </a>
       ))
     : [];
-
-  const handleFinishedTypeWriter = () => {
-    setShowLinks(true);
-  };
 
   if (props.isBot)
     return (
@@ -38,7 +34,7 @@ const ChatDetail: React.FC<{
               <Typewriter
                 text={props.text}
                 delay={10}
-                finishedTypeWriter={handleFinishedTypeWriter}
+                finishedTypeWriter={props.finishedTypeWriter}
               />
               <div className=" flex-col flex text-blue-500 bg-transparent underline">
                 {sourceLinks}
