@@ -167,3 +167,41 @@ table, th, td {
     padding-left: 2em;
 }
 
+//rating
+.rating {
+    display: inline-block;
+    width: 100%;
+    padding-top: 1em;
+    text-align: center;
+    background-color: transparent;
+  }
+  
+  .like,
+  .dislike {
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .dislike:hover,
+  .like:hover {
+    color: #2EBDD1;
+    transition: all .2s ease-in-out;
+    transform: scale(1.1);
+  }
+  
+  .active {
+    color: #2EBDD1;
+  }
+
+  .rating-icon{
+    width: 1.5em;
+    height: 1.5em;
+    background-color:transparent;
+  }
+  i.rating-icon::before{
+    background:transparent;
+}
+svg{
+    background-color: transparent;
+}

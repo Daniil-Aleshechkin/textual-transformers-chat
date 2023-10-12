@@ -5,10 +5,8 @@ import type Prompt from "../types/prompt";
 import ChatDetail from "./chat-detail";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { ChatData } from "../models/ChatData";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner";
-import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
-import { faThumbsDown } from "@fortawesome/free-regular-svg-icons/faThumbsDown";
+import RatingsBar from "./rating";
 
 const PromptCompoment: React.FC<{ prompt: Prompt | undefined }> = ({
   prompt,
@@ -43,10 +41,7 @@ const PromptCompoment: React.FC<{ prompt: Prompt | undefined }> = ({
                   text={prompt?.response}
                   sources={prompt?.sources ?? []}
                 />
-                <div className=" bg-transparent">
-                  <FontAwesomeIcon icon={faThumbsUp} />
-                  <FontAwesomeIcon icon={faThumbsDown} />
-                </div>
+                <RatingsBar/>
               </React.Fragment>
             ) : (
               <FontAwesomeIcon icon={faSpinner} className=" animate-spin" />
