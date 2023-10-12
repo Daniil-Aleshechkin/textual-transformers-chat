@@ -9,6 +9,12 @@ import axios from "axios";
 
 interface ChatAPIResponse {
   response: string;
+  sources: ChatAPISource[];
+}
+
+interface ChatAPISource {
+  fileName: string;
+  filePath: string;
 }
 
 const Chat: React.FC = () => {
@@ -19,6 +25,7 @@ const Chat: React.FC = () => {
     input: "",
     response: null,
     responseStatus: "Ready",
+    sources: [],
   });
 
   const handleSendMessage = (id: string) => {
@@ -28,6 +35,7 @@ const Chat: React.FC = () => {
         input: inputMessage,
         response: null,
         responseStatus: "Waiting",
+        sources: [],
       });
       setInputMessage("");
     }
@@ -45,7 +53,7 @@ const Chat: React.FC = () => {
       try {
         const rawResponse = (
           await axios.post(
-            "https://team8azureopenaiservice.azurewebsites.net/Chat",
+            "http://localhost:5077/Chat",
             {
               Message: currentPrompt.input,
             },
@@ -61,6 +69,7 @@ const Chat: React.FC = () => {
           input: currentPrompt.input,
           response: response,
           responseStatus: "Success",
+          sources: rawResponse.sources,
         });
       } catch (error) {
         const response = error as string;
@@ -71,6 +80,7 @@ const Chat: React.FC = () => {
           input: currentPrompt.input,
           response: response,
           responseStatus: "Failed",
+          sources: [],
         });
       }
 
@@ -81,6 +91,7 @@ const Chat: React.FC = () => {
         input: "",
         response: null,
         responseStatus: "Ready",
+        sources: [],
       });
     };
 
