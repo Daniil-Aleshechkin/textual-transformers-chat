@@ -53,7 +53,7 @@ const Chat: React.FC = () => {
       try {
         const rawResponse = (
           await axios.post(
-            "http://localhost:5077/Chat",
+            "https://team8azureopenaiservice.azurewebsites.net/Chat",
             {
               Message: currentPrompt.input,
             },
