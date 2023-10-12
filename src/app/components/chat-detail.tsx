@@ -9,7 +9,7 @@ const ChatDetail: React.FC<{
   sources: Source[];
 }> = (props) => {
   const sourceLinks = props.sources.map((source, index) => (
-    <a key={`LINK: ${index}`} href={source.filePath}>
+    <a key={`LINK: ${index}`} href={source.filePath} target="_blank">
       {source.fileName}
     </a>
   ));
