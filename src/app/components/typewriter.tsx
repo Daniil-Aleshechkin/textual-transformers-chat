@@ -7,7 +7,7 @@ const Typewriter = ({ text, delay }: { text: any; delay: any }) => {
   useEffect(() => {
     if (text != null && currentIndex < text?.length) {
       const timeout = setTimeout(() => {
-        setCurrentText((prevText) => text[currentIndex]);
+        setCurrentText((prevText) => prevText + text[currentIndex]);
         setCurrentIndex((prevIndex) => prevIndex + 1);
       }, delay);
 
